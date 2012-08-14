@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.deskclock;
+package com.android.deskclock2;
 
 import android.os.Handler;
 import android.os.HandlerThread;

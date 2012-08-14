@@ -18,7 +18,7 @@
  * package-level logging flag
  */
 
-package com.android.deskclock;
+package com.android.deskclock2;
 
 import android.os.SystemClock;
 

@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.android.deskclock"
+        package="com.android.deskclock2"
         android:versionCode="203" android:versionName="2.0.3">
 
-    <original-package android:name="com.android.alarmclock" />
-    <original-package android:name="com.android.deskclock" />
+    <original-package android:name="com.android.alarmclock2" />
+    <original-package android:name="com.android.deskclock2" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
@@ -13,13 +13,17 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.DEVICE_POWER" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+        <uses-permission android:name="android.permission.SET_ALARM"></uses-permission>
+    
     <application android:label="@string/app_label"
                  android:icon="@mipmap/ic_launcher_alarmclock">
 
         <provider android:name="AlarmProvider"
-                android:authorities="com.android.deskclock"
+                android:authorities="com.android.deskclock2"
                 android:exported="false" />
+                <provider android:name="com.android.deskclock.AlarmProvider" android:authorities="com.android.deskclock2" />
+        <original-package android:name="com.android.deskclock"/>
 
         <activity android:name="DeskClock"
                 android:label="@string/app_label"
@@ -45,8 +49,8 @@
                 android:configChanges="orientation|keyboardHidden|keyboard|navigation"
                 android:exported="true" />
 
-        <activity-alias android:name="com.android.alarmclock.AlarmClock"
-                android:targetActivity="com.android.deskclock.AlarmClock"
+        <activity-alias android:name="com.android.alarmclock2.AlarmClock"
+                android:targetActivity="com.android.deskclock2.AlarmClock"
                 android:exported="true" />
 
         <activity android:name="SettingsActivity"
@@ -83,7 +87,7 @@
         <receiver android:name="AlarmReceiver"
                 android:exported="false">
             <intent-filter>
-                <action android:name="com.android.deskclock.ALARM_ALERT" />
+                <action android:name="com.android.deskclock2.ALARM_ALERT" />
                 <action android:name="alarm_killed" />
                 <action android:name="cancel_snooze" />
             </intent-filter>
@@ -109,7 +113,7 @@
                 android:exported="false"
                 android:description="@string/alarm_klaxon_service_desc">
             <intent-filter>
-                <action android:name="com.android.deskclock.ALARM_ALERT" />
+                <action android:name="com.android.deskclock2.ALARM_ALERT" />
             </intent-filter>
         </service>
 
@@ -122,12 +126,12 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.alarmclock.AnalogAppWidgetProvider" android:label="@string/analog_gadget"
+        <receiver android:name="com.android.alarmclock2.AnalogAppWidgetProvider" android:label="@string/analog_gadget"
         	android:icon="@mipmap/ic_widget_analog_clock">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
-            <meta-data android:name="android.appwidget.oldName" android:value="com.android.deskclock.AnalogAppWidgetProvider" />
+            <meta-data android:name="android.appwidget.oldName" android:value="com.android.deskclock2.AnalogAppWidgetProvider" />
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/analog_appwidget" />
         </receiver>
 

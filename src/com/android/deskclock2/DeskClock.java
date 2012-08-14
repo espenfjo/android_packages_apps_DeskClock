@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.deskclock;
+package com.android.deskclock2;
 
 import static android.os.BatteryManager.BATTERY_STATUS_UNKNOWN;
 
@@ -54,13 +54,13 @@ import java.util.Random;
 /**
  * DeskClock clock view for desk docks.
  */
-public class DeskClock extends Activity {
+public class DeskClock extends ActionBarActivity {
     private static final boolean DEBUG = false;
 
-    private static final String LOG_TAG = "DeskClock";
+    private static final String LOG_TAG = "DeskClock2";
 
     // Alarm action for midnight (so we can update the date display).
-    private static final String ACTION_MIDNIGHT = "com.android.deskclock.MIDNIGHT";
+    private static final String ACTION_MIDNIGHT = "com.android.deskclock2.MIDNIGHT";
     private static final String KEY_DIMMED = "dimmed";
     private static final String KEY_SCREEN_SAVER = "screen_saver";
 

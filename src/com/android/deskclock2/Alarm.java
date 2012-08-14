@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.deskclock;
+package com.android.deskclock2;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -72,7 +72,7 @@ public final class Alarm implements Parcelable {
          * The content:// style URL for this table
          */
         public static final Uri CONTENT_URI =
-                Uri.parse("content://com.android.deskclock/alarm");
+                Uri.parse("content://com.android.deskclock2/alarm");
 
         /**
          * Hour in 24-hour localtime 0 - 23.

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.deskclock;
+package com.android.deskclock2;
 
 import android.app.ActionBar;
 import android.app.Activity;
@@ -46,9 +46,9 @@ import java.util.Calendar;
 /**
  * AlarmClock application.
  */
-public class AlarmClock extends Activity implements OnItemClickListener {
+public class AlarmClock extends ActionBarActivity implements OnItemClickListener {
 
-    static final String PREFERENCES = "AlarmClock";
+    static final String PREFERENCES = "AlarmClock2";
 
     /** This must be false for production.  If true, turns on logging,
         test code, etc. */

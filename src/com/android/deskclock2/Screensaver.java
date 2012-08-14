@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.deskclock;
+package com.android.deskclock2;
 
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
@@ -40,11 +40,11 @@ import android.util.Log;
 
 public class Screensaver extends Activity {
     static final boolean DEBUG = false;
-    static final String TAG = "DeskClock/Screensaver";
+    static final String TAG = "DeskClock2/Screensaver";
 
     static int CLOCK_COLOR = 0xFF66AAFF;
 
-    static final long MOVE_DELAY = 60000; // DeskClock.SCREEN_SAVER_MOVE_DELAY;
+    static final long MOVE_DELAY = 60000; // DeskClock2.SCREEN_SAVER_MOVE_DELAY;
     static final long SLIDE_TIME = 10000;
     static final long FADE_TIME = 1000;
 
@@ -87,7 +87,7 @@ public class Screensaver extends Activity {
         public void run() {
             long delay = MOVE_DELAY;
 
-//            Log.d("DeskClock/Screensaver",
+//            Log.d("DeskClock2/Screensaver",
 //                    String.format("mContentView=(%d x %d) container=(%d x %d)",
 //                        mContentView.getWidth(), mContentView.getHeight(),
 //                        mSaverView.getWidth(), mSaverView.getHeight()

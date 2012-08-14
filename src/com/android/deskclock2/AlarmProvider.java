@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.deskclock;
+package com.android.deskclock2;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
@@ -36,8 +36,8 @@ public class AlarmProvider extends ContentProvider {
             UriMatcher.NO_MATCH);
 
     static {
-        sURLMatcher.addURI("com.android.deskclock", "alarm", ALARMS);
-        sURLMatcher.addURI("com.android.deskclock", "alarm/#", ALARMS_ID);
+        sURLMatcher.addURI("com.android.deskclock2", "alarm", ALARMS);
+        sURLMatcher.addURI("com.android.deskclock2", "alarm/#", ALARMS_ID);
     }
 
     public AlarmProvider() {

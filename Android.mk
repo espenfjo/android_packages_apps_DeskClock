@@ -7,9 +7,9 @@ LOCAL_STATIC_JAVA_LIBRARIES := android-support-v13
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-LOCAL_PACKAGE_NAME := DeskClock
+LOCAL_PACKAGE_NAME := DeskClock2
 
-LOCAL_OVERRIDES_PACKAGES := AlarmClock
+LOCAL_OVERRIDES_PACKAGES := AlarmClock2
 
 LOCAL_SDK_VERSION := current
 
