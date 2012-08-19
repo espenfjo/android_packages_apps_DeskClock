@@ -323,7 +323,7 @@ public class AlarmKlaxon extends Service {
     private void enableKiller(Alarm alarm) {
         final String autoSnooze =
                 PreferenceManager.getDefaultSharedPreferences(this)
-                .getString(SettingsActivity.KEY_AUTO_SILENCE,
+                .getString(SettingsFragment.KEY_AUTO_SILENCE,
                         DEFAULT_ALARM_TIMEOUT);
         int autoSnoozeMinutes = Integer.parseInt(autoSnooze);
         if (autoSnoozeMinutes != -1) {

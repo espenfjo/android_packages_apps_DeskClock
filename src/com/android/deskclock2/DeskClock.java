@@ -20,6 +20,8 @@ import static android.os.BatteryManager.BATTERY_STATUS_UNKNOWN;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.PendingIntent;
 import android.app.UiModeManager;
 import android.content.BroadcastReceiver;
@@ -32,6 +34,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.Settings;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.DisplayMetrics;
@@ -496,6 +499,9 @@ public class DeskClock extends ActionBarActivity {
                     mDimmed = false;
                     doDim(true);
                 }
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                Fragment AC = new AlarmClock();
+                fragmentTransaction.replace(0,AC);
                 startActivity(new Intent(DeskClock.this, AlarmClock.class));
             }
         };

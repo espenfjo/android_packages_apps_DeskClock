@@ -25,6 +25,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.provider.Settings;
@@ -32,7 +33,7 @@ import android.provider.Settings;
 /**
  * Settings for the Alarm Clock.
  */
-public class SettingsActivity extends PreferenceActivity
+public class SettingsFragment extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final int ALARM_STREAM_TYPE_BIT =
@@ -52,13 +53,13 @@ public class SettingsActivity extends PreferenceActivity
             "flip_action";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
 
         final AlarmPreference ringtone =
                 (AlarmPreference) findPreference(KEY_DEFAULT_RINGTONE);
-        Uri alert = RingtoneManager.getActualDefaultRingtoneUri(this,
+        Uri alert = RingtoneManager.getActualDefaultRingtoneUri(getActivity(),
                 RingtoneManager.TYPE_ALARM);
         if (alert != null) {
             ringtone.setAlert(alert);
@@ -67,7 +68,7 @@ public class SettingsActivity extends PreferenceActivity
     }
 
     @Override
-    protected void onResume() {
+	public void onResume() {
         super.onResume();
         refresh();
     }
@@ -78,7 +79,7 @@ public class SettingsActivity extends PreferenceActivity
         if (KEY_ALARM_IN_SILENT_MODE.equals(preference.getKey())) {
             CheckBoxPreference pref = (CheckBoxPreference) preference;
             int ringerModeStreamTypes = Settings.System.getInt(
-                    getContentResolver(),
+                    getActivity().getContentResolver(),
                     Settings.System.MODE_RINGER_STREAMS_AFFECTED, 0);
 
             if (pref.isChecked()) {
@@ -87,7 +88,7 @@ public class SettingsActivity extends PreferenceActivity
                 ringerModeStreamTypes |= ALARM_STREAM_TYPE_BIT;
             }
 
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.MODE_RINGER_STREAMS_AFFECTED,
                     ringerModeStreamTypes);
 
@@ -136,7 +137,7 @@ public class SettingsActivity extends PreferenceActivity
         final CheckBoxPreference alarmInSilentModePref =
                 (CheckBoxPreference) findPreference(KEY_ALARM_IN_SILENT_MODE);
         final int silentModeStreams =
-                Settings.System.getInt(getContentResolver(),
+                Settings.System.getInt(getActivity().getContentResolver(),
                         Settings.System.MODE_RINGER_STREAMS_AFFECTED, 0);
         alarmInSilentModePref.setChecked(
                 (silentModeStreams & ALARM_STREAM_TYPE_BIT) == 0);

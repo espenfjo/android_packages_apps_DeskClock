@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         package="com.android.deskclock2"
         android:versionCode="203" android:versionName="2.0.3">
+         <uses-sdk android:minSdkVersion="14"
+              android:targetSdkVersion="15" />
 
     <original-package android:name="com.android.alarmclock2" />
     <original-package android:name="com.android.deskclock2" />
@@ -22,7 +24,6 @@
         <provider android:name="AlarmProvider"
                 android:authorities="com.android.deskclock2"
                 android:exported="false" />
-                <provider android:name="com.android.deskclock.AlarmProvider" android:authorities="com.android.deskclock2" />
         <original-package android:name="com.android.deskclock"/>
 
         <activity android:name="DeskClock"
@@ -53,7 +54,7 @@
                 android:targetActivity="com.android.deskclock2.AlarmClock"
                 android:exported="true" />
 
-        <activity android:name="SettingsActivity"
+        <activity android:name=".SettingsFragment"
                 android:label="@string/settings"
                 android:taskAffinity=""
                 android:excludeFromRecents="true"
